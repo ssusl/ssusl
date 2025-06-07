@@ -1,143 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>SSU Sri Lanka - Coming Soon</title>
-    <style>
-        /* Background animation */
-        @keyframes backgroundFade {
-            0%   { background-color: #8B0000; }  /* dark red */
-            33%  { background-color: #b32a00; }  /* red */
-            66%  { background-color: #ff4d4d; }  /* light red */
-            100% { background-color: #8B0000; }  /* back to dark red */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSU Sri Lanka - Coming Soon</title>
+  <style>
+    /* Keyframes for background and jump */
+    @keyframes backgroundFade {
+      0% { background-color: #8B0000; }
+      33% { background-color: #b32a00; }
+      66% { background-color: #ff4d4d; }
+      100% { background-color: #8B0000; }
+    }
 
-        body {
-            margin: 0;
-            padding: 0;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            animation: backgroundFade 10s infinite; /* 10s cycle, infinite loop */
-        }
+    @keyframes jump {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
 
-        .header {
-            display: flex;
-            flex-direction: column; /* stack logo and text */
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            font-weight: bold;
-            font-size: 18px;
-            text-align: center;
-        }
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .header img {
-            height: 100px; /* bigger logo */
-            margin-bottom: 10px;
-        }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: white;
+      text-align: center;
+      background: #8B0000;
+      animation: backgroundFade 10s infinite;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-        .content {
-            margin-top: 100px;
-        }
+    .header {
+      padding: 30px 20px 10px;
+    }
 
-        .content h1 {
-            font-size: 80px;
-            margin: 20px 0;
-            color: yellow;
-        }
+    .header img {
+      height: 90px;
+      margin-bottom: 10px;
+    }
 
-        .content p {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
+    .header div {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
 
-        .footer {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 50px;
-            font-size: 14px;
-            align-items: center;
-        }
+    .content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-        .footer-left {
-            text-align: left;
-        }
+    .content h1 {
+      font-size: 60px;
+      line-height: 1.2;
+      color: yellow;
+      margin: 30px 0 20px;
+      word-break: break-word;
+    }
 
-        .footer-left img {
-            height: 50px;
-            vertical-align: middle;
-        }
+    .content p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
 
-        .footer-right {
-            text-align: right;
-        }
+    .jump span {
+      display: inline-block;
+      animation: jump 1.5s infinite;
+    }
 
-        /* Jumping letters animation */
-        @keyframes jump {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-        }
+    /* Jump delay for each letter */
+    .jump span:nth-child(1) { animation-delay: 0s; }
+    .jump span:nth-child(2) { animation-delay: 0.1s; }
+    .jump span:nth-child(3) { animation-delay: 0.2s; }
+    .jump span:nth-child(4) { animation-delay: 0.3s; }
+    .jump span:nth-child(5) { animation-delay: 0.4s; }
+    .jump span:nth-child(6) { animation-delay: 0.5s; }
+    .jump span:nth-child(7) { animation-delay: 0.6s; }
+    .jump span:nth-child(8) { animation-delay: 0.7s; }
+    .jump span:nth-child(9) { animation-delay: 0.8s; }
+    .jump span:nth-child(10) { animation-delay: 0.9s; }
 
-        .jump span {
-            display: inline-block;
-            animation: jump 1s infinite;
-        }
+    .footer {
+      padding: 20px;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
 
-        .jump span:nth-child(1) { animation-delay: 0s; }
-        .jump span:nth-child(2) { animation-delay: 0.1s; }
-        .jump span:nth-child(3) { animation-delay: 0.2s; }
-        .jump span:nth-child(4) { animation-delay: 0.3s; }
-        .jump span:nth-child(5) { animation-delay: 0.4s; }
-        .jump span:nth-child(6) { animation-delay: 0.5s; }
-        .jump span:nth-child(7) { animation-delay: 0.6s; }
-        .jump span:nth-child(8) { animation-delay: 0.7s; }
-        .jump span:nth-child(9) { animation-delay: 0.8s; }
-        .jump span:nth-child(10) { animation-delay: 0.9s; }
-        .jump span:nth-child(11) { animation-delay: 1.0s; }
-    </style>
+    .footer img {
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .footer p {
+      margin: 4px 0;
+      font-size: 13px;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 768px) {
+      .content h1 {
+        font-size: 48px;
+      }
+
+      .header img {
+        height: 70px;
+      }
+
+      .header div {
+        font-size: 16px;
+      }
+
+      .footer {
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content h1 {
+        font-size: 36px;
+      }
+
+      .content p {
+        font-size: 14px;
+      }
+
+      .jump span {
+        font-size: 30px;
+      }
+
+      .footer p {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <img src="logo.png" alt="SSU Logo" />
-        <div>
-            සමාජවාදී ශිෂ්‍ය සංගමය<br/>
-            சோசலிச மாணவர் சங்கம்<br/>
-            Socialist Students Union
-        </div>
+  <header class="header">
+    <img src="logo.png" alt="SSU Logo" />
+    <div>
+      සමාජවාදී ශිෂ්‍ය සංගමය<br />
+      சோசலிச மாணவர் சங்கம்<br />
+      Socialist Students Union
     </div>
+  </header>
 
-    <div class="content">
-        <p>Welcome to Socialist Students Union - Sri Lanka Website</p>
-        <p>Our website is currently under development.</p>
-        <h1 class="jump">
-            <span>C</span>
-            <span>O</span>
-            <span>M</span>
-            <span>I</span>
-            <span>N</span>
-            <span>G</span>
-            <br/>
-            <span>S</span>
-            <span>O</span>
-            <span>O</span>
-            <span>N</span>
-        </h1>
-        <p>
-            Address: 44/2/1, Pannipitiya Road, Pelawatta, Battaramulla.<br/>
-            Tel: +94 292 6277<br/>
-            Fax: +94 112 760260<br/>
-            Email: ssu_lanka@yahoo.com<br/>
-            Web: ssusrilanka.com
-        </p>
-    </div>
+  <main class="content">
+    <p>Welcome to Socialist Students Union - Sri Lanka Website</p>
+    <p>Our website is currently under development.</p>
+    <h1 class="jump">
+      <span>C</span><span>O</span><span>M</span><span>I</span><span>N</span><span>G</span><br />
+      <span>S</span><span>O</span><span>O</span><span>N</span>
+    </h1>
+    <p>
+      Address: 44/2/1, Pannipitiya Road, Pelawatta, Battaramulla.<br />
+      Tel: +94 292 6277<br />
+      Fax: +94 112 760260<br />
+      Email: <a href="mailto:ssu_lanka@yahoo.com" style="color: yellow;">ssu_lanka@yahoo.com</a><br />
+      Web: <a href="http://ssusrilanka.com" target="_blank" style="color: yellow;">ssusrilanka.com</a>
+    </p>
+  </main>
+
+  <footer class="footer">
+    <img src="logo.png" alt="SSU Logo Footer" />
+    <p>© 2025 Socialist Students Union - Sri Lanka. All rights reserved.</p>
+  </footer>
 </body>
 </html>
