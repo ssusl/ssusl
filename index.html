@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SSU Sri Lanka - Coming Soon</title>
   <style>
-    /* Animations */
+    /* Keyframes for background and jump */
     @keyframes backgroundFade {
       0% { background-color: #8B0000; }
       33% { background-color: #b32a00; }
@@ -18,7 +18,7 @@
       50% { transform: translateY(-15px); }
     }
 
-    /* Reset and Base Styles */
+    /* Reset and base styles */
     * {
       margin: 0;
       padding: 0;
@@ -34,6 +34,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
 
     .header {
@@ -53,24 +54,23 @@
 
     .content {
       padding: 20px;
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      gap: 15px;
-      flex: 0 0 auto; /* prevent stretching */
     }
 
     .content h1 {
       font-size: 60px;
       line-height: 1.2;
       color: yellow;
-      margin: 20px 0;
+      margin: 30px 0 20px;
       word-break: break-word;
     }
 
     .content p {
       font-size: 16px;
+      margin: 10px 0;
     }
 
     .jump span {
@@ -78,6 +78,7 @@
       animation: jump 1.5s infinite;
     }
 
+    /* Jump delay for each letter */
     .jump span:nth-child(1) { animation-delay: 0s; }
     .jump span:nth-child(2) { animation-delay: 0.1s; }
     .jump span:nth-child(3) { animation-delay: 0.2s; }
@@ -95,7 +96,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0, 0.3);
     }
 
     .footer img {
@@ -108,7 +109,7 @@
       font-size: 13px;
     }
 
-    /* Responsive Styling */
+    /* Responsive styling */
     @media (max-width: 768px) {
       .content h1 {
         font-size: 48px;
@@ -128,13 +129,8 @@
     }
 
     @media (max-width: 480px) {
-      .content {
-        padding: 20px 10px;
-        gap: 10px;
-      }
-
       .content h1 {
-        font-size: 32px;
+        font-size: 36px;
       }
 
       .content p {
@@ -142,15 +138,7 @@
       }
 
       .jump span {
-        font-size: 26px;
-      }
-
-      .header {
-        padding-top: 20px;
-      }
-
-      .footer {
-        padding-top: 10px;
+        font-size: 30px;
       }
 
       .footer p {
